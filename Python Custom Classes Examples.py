@@ -1,4 +1,5 @@
 class TypedList(list):
+    
     def __init__(self, element_type=int):
         self.element_type = element_type
         super().__init__() 
