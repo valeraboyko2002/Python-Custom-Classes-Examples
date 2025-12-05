@@ -108,3 +108,31 @@ print(account.deposit(500))
 print(account.withdraw(200)) 
 # account.__balance = 10000  # Ошибка! Приватное поле
 print(f"Баланс: {account.balance}")  
+# _________________________________________________________________________________________________________
+
+class Person:
+
+    def __init__(self, name):
+        self.name = name
+    
+    def __str__(self):
+        return self.name
+
+class TagMixin:
+    
+    def tag(self):
+        text = str(self)
+        new_tag = '@' + text.replace(' ', '').upper()
+    
+        return new_tag  
+
+class Employee(Person, TagMixin):
+
+    def __init__(self, name):
+        Person.__init__(self, name)
+
+
+
+ivan = Employee("Иван Иванович Иванов")
+tag_ivan = ivan.tag()
+print(tag_ivan)
